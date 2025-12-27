@@ -346,7 +346,7 @@ export default function App() {
             {questionBank.length > 0 && (
               <button
                 onClick={() => startQuiz()}
-                className="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold text-sm hover:bg-indigo-700 shadow-md flex items-center justify-center gap-2"
+                className="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold text-base hover:bg-indigo-700 shadow-md flex items-center justify-center gap-2"
               >
                 <Play className="fill-current" size={14} /> Start Now ({questionBank.length})
               </button>
@@ -355,7 +355,7 @@ export default function App() {
             {history.length > 0 && (
               <button
                 onClick={() => setView('HISTORY')}
-                className="w-full border border-slate-200 text-slate-600 py-3 rounded-lg font-bold text-sm hover:bg-slate-50 flex items-center justify-center gap-2 transition-colors"
+                className="w-full border border-slate-200 text-slate-600 py-3 rounded-lg font-bold text-base hover:bg-slate-50 flex items-center justify-center gap-2 transition-colors"
               >
                 <HistoryIcon size={16} /> View History
               </button>
@@ -409,7 +409,7 @@ export default function App() {
 
           {/* Compact Question Card */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-3.5 md:p-5 mb-3">
-            <h2 className="text-sm md:text-base font-bold text-slate-800 leading-snug mb-4">
+            <h2 className="text-base md:text-lg font-bold text-slate-800 leading-snug mb-4">
               {question.text}
             </h2>
 
@@ -459,14 +459,14 @@ export default function App() {
               <button
                 onClick={submitAnswer}
                 disabled={selectedIds.length === 0}
-                className="flex-1 bg-slate-800 text-white py-2.5 rounded-lg font-bold text-sm disabled:opacity-30 shadow-md transition-all active:scale-[0.98]"
+                className="flex-1 bg-slate-800 text-white py-2.5 rounded-lg font-bold text-base disabled:opacity-30 shadow-md transition-all active:scale-[0.98]"
               >
                 Confirm
               </button>
             ) : (
               <button
                 onClick={nextQuestion}
-                className="flex-1 bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-sm hover:bg-indigo-700 flex items-center justify-center gap-1 shadow-md transition-all active:scale-[0.98]"
+                className="flex-1 bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-base hover:bg-indigo-700 flex items-center justify-center gap-1 shadow-md transition-all active:scale-[0.98]"
               >
                 {currentIndex === currentSession.totalQuestions - 1 ? 'Finish Quiz' : 'Next Question'} <ChevronRight size={14} />
               </button>
@@ -481,20 +481,20 @@ export default function App() {
               <div className="flex justify-center mb-3 text-rose-500">
                 <AlertTriangle size={40} />
               </div>
-              <h3 className="text-base font-black text-center text-slate-800 mb-1 uppercase tracking-tight">Exit Quiz?</h3>
+              <h3 className="text-lg font-black text-center text-slate-800 mb-1 uppercase tracking-tight">Exit Quiz?</h3>
               <p className="text-slate-500 text-center text-[11px] mb-5 leading-relaxed">
                 Are you sure you want to end this session? All progress for this current quiz will be lost.
               </p>
               <div className="flex flex-col gap-2">
                 <button
                   onClick={handleExitQuiz}
-                  className="w-full bg-rose-500 text-white py-2.5 rounded-xl font-bold text-sm shadow-md hover:bg-rose-600 transition-colors"
+                  className="w-full bg-rose-500 text-white py-2.5 rounded-xl font-bold text-base shadow-md hover:bg-rose-600 transition-colors"
                 >
                   Yes, Exit Now
                 </button>
                 <button
                   onClick={() => setShowExitConfirm(false)}
-                  className="w-full bg-slate-50 text-slate-600 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-100 transition-colors"
+                  className="w-full bg-slate-50 text-slate-600 py-2.5 rounded-xl font-bold text-base hover:bg-slate-100 transition-colors"
                 >
                   Keep Playing
                 </button>
@@ -558,7 +558,7 @@ export default function App() {
         <div className="max-w-xl w-full mx-auto">
           <div className="flex items-center gap-2 mb-3">
             <button onClick={() => setView('SUMMARY')} className="p-1.5 bg-white rounded-lg border border-slate-200"><ChevronRight className="rotate-180" size={18} /></button>
-            <h2 className="text-base font-black text-slate-800 uppercase tracking-tight">Review Details</h2>
+            <h2 className="text-lg font-black text-slate-800 uppercase tracking-tight">Review Details</h2>
           </div>
           <div className="space-y-3 mb-8">
             {currentSession.questions.map((q, qIdx) => {
@@ -574,7 +574,7 @@ export default function App() {
                     )}
                   </div>
                   <div className="p-3.5">
-                    <p className="text-sm font-bold text-slate-800 mb-3 leading-snug">{q.text}</p>
+                    <p className="text-base font-bold text-slate-800 mb-3 leading-snug">{q.text}</p>
                     <div className="space-y-1">
                       {q.options.map(opt => {
                         const isSelectedByPlayer = userAnswer?.selectedOptionIds.includes(opt.id);
@@ -596,7 +596,7 @@ export default function App() {
               );
             })}
           </div>
-          <button onClick={() => setView('SUMMARY')} className="w-full bg-indigo-600 text-white py-3 rounded-lg font-black text-sm mb-10 shadow-md hover:bg-indigo-700">Back to Summary</button>
+          <button onClick={() => setView('SUMMARY')} className="w-full bg-indigo-600 text-white py-3 rounded-lg font-black text-base mb-10 shadow-md hover:bg-indigo-700">Back to Summary</button>
         </div>
       </div>
     );
